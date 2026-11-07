@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class AsteroidMove : MonoBehaviour
-{
+{   // assigning variable; keybinds, asteroid movement and rotation speed.
     [SerializeField] public float normalSpeed = 4.0f;
     [SerializeField] public float boostSpeed = 8.0f;
     public float accelerate = 5f;
@@ -20,7 +20,7 @@ public class AsteroidMove : MonoBehaviour
         currentSpeed = normalSpeed;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision) //particle system for asteroid explosion
     {
         if (myPart != null)
         {
@@ -28,7 +28,7 @@ public class AsteroidMove : MonoBehaviour
         }
 
         //spaceship collision
-        if (collision.gameObject.name == "Spaceship")
+        if (collision.gameObject.name == "Spaceship") //when colliding with spaceship
         {
             screenShake shake = Camera.main.GetComponent<screenShake>();
             if (shake != null)
@@ -57,7 +57,7 @@ public class AsteroidMove : MonoBehaviour
             }
 
     }
-        void Update()
+        void Update() //visual acceleration and deceleration
     {
         bool isBoosting = Input.GetKey(boostKey);
         float targetSpeed = isBoosting ? boostSpeed : normalSpeed;
@@ -65,7 +65,7 @@ public class AsteroidMove : MonoBehaviour
 
         currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, speedChange * Time.deltaTime);
 
-        this.transform.Translate(Vector3.down * currentSpeed * Time.deltaTime, Space.World);
-        this.transform.Rotate(new Vector3(0, 0, rotationSpeed));
+        this.transform.Translate(Vector3.down * currentSpeed * Time.deltaTime, Space.World); //asteroid downwards motion
+        this.transform.Rotate(new Vector3(0, 0, rotationSpeed)); //asteroid spinning on its axis
     }
 }

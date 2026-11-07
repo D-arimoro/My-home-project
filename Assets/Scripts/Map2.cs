@@ -13,7 +13,7 @@ public class map2 : MonoBehaviour
         // Use boostSpeed if holding the boost key, otherwise use normalSpeed
         float currentSpeed = Input.GetKey(boostKey) ? boostSpeed : normalSpeed;
 
-        transform.Translate(Vector3.down * currentSpeed * Time.deltaTime, Space.World);
+        transform.Translate(Vector3.down * currentSpeed * Time.deltaTime, Space.World); //downwards motion
         //transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
     }
 }

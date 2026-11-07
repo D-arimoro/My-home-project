@@ -23,7 +23,7 @@ public class SpaceshipScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() // left and right motion for spaceship
     {
         movementX = 0f;
 
@@ -44,7 +44,7 @@ public class SpaceshipScript : MonoBehaviour
 
         if(Input.GetKey(boost))
         {
-            if (!myPart.isEmitting)
+            if (!myPart.isEmitting) //plays perticle system only when boosting
                 myPart.Play();
         }
         else

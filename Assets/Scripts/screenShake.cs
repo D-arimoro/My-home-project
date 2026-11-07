@@ -4,30 +4,21 @@ using UnityEngine;
 public class screenShake : MonoBehaviour
 {
     //public bool start = false;
-    public float duration = 1f;
+    public float duration = 1f; //preset shake duration
     public AnimationCurve curve;
 
-    // Update is called once per frame
-    //void Update()
-   // {
-    //    if (start)
-    //    {
-     //       start = false;
-    //        StartCoroutine(Shaking());
-      //  }
-    //}
-    public IEnumerator Shaking()
+    public IEnumerator Shaking() //method
     {
-        Vector3 startPosition = transform.position;
+        Vector3 startPosition = transform.position; //camera start position
         float elapsedTime = 0f;
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
             float strength = curve.Evaluate(elapsedTime / duration);
-            transform.position = startPosition + Random.insideUnitSphere * strength;
+            transform.position = startPosition + Random.insideUnitSphere * strength; // moves the camera axis in random positions.
             yield return null;
         }
 
-        transform.position = startPosition;
+        transform.position = startPosition; // returns to camera start position.
     }
 }
