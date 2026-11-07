@@ -9,7 +9,7 @@ public class SpaceshipScript : MonoBehaviour
     public KeyCode right;
     private KeyCode boost = KeyCode.LeftShift;
     public float moveSpeed = 5f;
-    public float rotationSpeed = 10f;
+    //public float rotationSpeed = 10f;
     public ParticleSystem myPart;
     public Rigidbody2D myRigid;
     private float movementX = 0f;
