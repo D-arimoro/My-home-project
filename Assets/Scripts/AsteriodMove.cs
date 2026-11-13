@@ -27,6 +27,11 @@ public class AsteroidMove : MonoBehaviour
             myPart.Play();
         }
 
+        HealthBarScript health = collision.gameObject.GetComponentInParent<HealthBarScript>();
+        if (health != null)
+        {
+            health.TakeDamage();
+        }
         //spaceship collision
         if (collision.gameObject.name == "Spaceship") //when colliding with spaceship
         {

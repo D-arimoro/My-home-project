@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Level1Timer : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class Level1Timer : MonoBehaviour
 
             timeLeft = Mathf.Max(0f, timeLeft);
             UpdateTimerDisplay();
+            if (timeLeft <= 0f)
+            {
+                SceneManager.LoadScene("LoseScreen");
+            }
         }
     }
 

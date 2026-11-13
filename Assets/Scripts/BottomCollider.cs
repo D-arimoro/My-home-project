@@ -6,7 +6,7 @@ public class BottomCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(other.gameObject);     //Destroyes asteroids when they touch the "bottom collider"
+        Destroy(other.gameObject, 1f);     //Destroyes asteroids when they touch the "bottom collider after 1 second"
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
